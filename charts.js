@@ -3,7 +3,7 @@ var loadedData = {};
 
 function init() {
     // Grab a reference to the dropdown select element
-    const selector = d3.select("#selDataset")
+    const selector = d3.select("#selDataset");
 
     // Use the list of sample names to populate the select options
     d3.json("samples.json").then(function (data) {
@@ -18,7 +18,10 @@ function init() {
         // Use the first sample from the list to build the initial plots
         buildMetadata(data.names[0]);
         buildCharts(data.names[0]);
-    })
+
+        d3.selectAll(".tabcontent").nodes().forEach((tab) => tab.style.display = tab.id === 'bar' ? 'block' : 'none');
+        d3.select(".tablinks").classed("active", true);
+    });
 }
 
 // Initialize the dashboard
@@ -46,15 +49,20 @@ function buildMetadata(selectedValue) {
 
         // Add each key and value pair to the panel
         for (object in resultObject) {
-            PANEL
-                .append("h6")
-                .text(object.toUpperCase() + ": " + resultObject[object]);
+            var h5 = PANEL.append("h5");
+            h5.append("span")
+                .text(object.toUpperCase() + ": ");
+            h5.append("span").text(resultObject[object]).style("font-weight", "bold");
         }
     }
 }
 
 // Create a function to build the charts
 function buildCharts(selectedValue) {
+    let chartDimensions = {
+        width: 820,
+        height: 600
+    }
 
     const sampleArray = loadedData.samples.filter(row => row.id == selectedValue);
     if (sampleArray.length > 0) {
@@ -70,12 +78,14 @@ function buildCharts(selectedValue) {
         //Create the Bar Chart
         var barData = [{
             x: sample_valuesArray.slice(0, 10).reverse(),
-            y: yticks, text: otu_labelsArray.slice(0, 10).reverse(),
+            y: yticks,
+            text: otu_labelsArray.slice(0, 10).reverse(),
             type: "bar",
             orientation: 'h'
         }];
 
         var barLayout = {
+            ...chartDimensions,
             title: 'Top 10 Bacteria Cultures Found'
         };
 
@@ -95,6 +105,7 @@ function buildCharts(selectedValue) {
         }];
 
         var bubbleLayout = {
+            ...chartDimensions,
             title: 'Bacteria Cultures Per Sample',
             hovermode: 'closest',
             xaxis: {
@@ -135,12 +146,19 @@ function buildCharts(selectedValue) {
         }]
 
         var gaugeLayout = {
-            title: "<b>Belly Button Washing Frequency</b>",
-            width: 500,
-            height: 400
+            ...chartDimensions,
+            title: "<b>Belly Button Washing Frequency</b>"
         }
 
         Plotly.newPlot("gauge", gaugeData, gaugeLayout, { responsive: true });
 
     }
+}
+
+function openChart(event, chart) {
+    var i, tabcontent, tablinks;
+    tabcontent = d3.selectAll(".tabcontent").nodes();
+    tabcontent.forEach((tab) => tab.style.display = tab.id === chart ? 'block' : 'none');
+    tablinks = d3.selectAll(".tablinks").classed("active", false);
+    d3.select(event.currentTarget).classed("active", true);
 }

@@ -7,23 +7,25 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bellybutton Biodiversity</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 
 <body>
 
   <div class="container">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center" style="background-image: url(background_photo.png); opacity: 0.5">
+      <div class="col-md-12 jumbotron text-center" style="background-image: url(background_image.png);">
         <h1>Belly Button Biodiversity Dashboard</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
+        <p><b>Use the interactive charts below to explore the dataset</b></p>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-3">
         <div class="well">
-          <h5>Test Subject ID No.:</h5>
+          <h4>Test Subject ID No.</h4>
           <!-- <select id="selDataset"></select> -->
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+          <select id="selDataset" class="form-control" onchange="optionChanged(this.value)"></select>
         </div>
         <div class="panel panel-primary">
           <div class="panel-heading">
@@ -32,23 +34,25 @@
           <div id="sample-metadata" class="panel-body"></div>
         </div>
       </div>
-      <div class="col-md-5">
-        <div id="bar"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="bubble"></div>
-      </div>
+      <div class="col-md-9">
+          <div class="tab">
+            <button class="col-md-4 tablinks" onclick="openChart(event, 'bar')">Bar</button>
+            <button class="col-md-4 tablinks" onclick="openChart(event, 'gauge')">Gauge</button>
+            <button class="col-md-4 tablinks" onclick="openChart(event, 'bubble')">Bubble</button>
+          </div>
+          <div>
+            <div id="bar" class="col-md-12 tabcontent"></div>
+            <div id="gauge" class="col-md-12 tabcontent"></div>
+            <div id="bubble" class="col-md-12 tabcontent"></div>
+          </div>
+        </div>
+      
     </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="plots.js"></script>
+  <script src="charts.js"></script>
 
 </body>
 
