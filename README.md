@@ -12,7 +12,7 @@ Here is the webpage after completing deliverables 1, 2 and 3:
 For Deliverable 4, the webpage has been customized with the following options:
 - Adding a background image to the jumbotron
 - Changing the layout of the page
-- Adding a navigation bar which allows the user to select which of the three charts to be displayed 
+- Adding a navigation bar that allows the user to select which of the three charts is displayed 
 
 Here is the webpage after completing deliverable 4:  <br />
 https://hala-intj.github.io/Belly-Button-Demographics-Panel/
