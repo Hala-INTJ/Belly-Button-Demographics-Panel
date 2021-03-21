@@ -1,7 +1,7 @@
 # Challenge 12: Belly Button Demographics Panel
 
-# Overiew of Belly Button Demographics Panel
-In this project, a webpage is built to display the demographic information and three dashboards for the volunteers participated in a study on navel bacteria.
+## Overiew of Belly Button Demographics Panel
+In this project, a webpage is built to display the demographic information and three dashboards for the volunteers who participated in a study on navel bacteria.
 
 Here is the webpage after completing deliverables 1,2 and 3:
 ![](https://github.com/Hala-INTJ/Belly-Button-Demographics-Panel/blob/main/webpage.png)
