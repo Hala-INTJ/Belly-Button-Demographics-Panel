@@ -3,6 +3,9 @@
 ## Overiew of Belly Button Demographics Panel
 In this project, a webpage is built to display the demographic information and three dashboards for the volunteers who participated in a study on navel bacteria.
 
+The data for the web page is in [samples.json](https://github.com/Hala-INTJ/Belly-Button-Demographics-Panel/blob/main/samples.json), the web application logic is in [charts.js](https://github.com/Hala-INTJ/Belly-Button-Demographics-Panel/blob/main/charts.js) and the structure of the webpage is in [index.html](https://github.com/Hala-INTJ/Belly-Button-Demographics-Panel/blob/main/index.html). The [styles.css](https://github.com/Hala-INTJ/Belly-Button-Demographics-Panel/blob/main/styles.css) is used to format part of the contents of the webpage.
+
+
 Here is the webpage after completing deliverables 1,2 and 3:
 ![](https://github.com/Hala-INTJ/Belly-Button-Demographics-Panel/blob/main/webpage.png)
 
